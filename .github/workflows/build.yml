@@ -15,13 +15,9 @@ jobs:
           distribution: temurin
           java-version: '11'
 
-  - uses: subosito/flutter-action@v2
+      - uses: subosito/flutter-action@v2
         with:
           flutter-version: '3.13.9'
-
-      - name: Upgrade Gradle wrapper
-        run: |
-          sed -i 's/gradle-6.7-all.zip/gradle-7.3.3-all.zip/' android/gradle/wrapper/gradle-wrapper.properties
 
       - run: flutter pub get
 
@@ -31,4 +27,3 @@ jobs:
         with:
           name: demo-apk
           path: build/app/outputs/flutter-apk/app-release.apk
-
